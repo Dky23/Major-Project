@@ -6,23 +6,23 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "departments")
-public class Department {
+@Document(collection = "healthmetric")
+public class HealthMetric {
 
     @Id
     private String id;
     private String name;
     
-    private List<String> employeeIds;
+    private List<String> PatientIds;
 
-    public Department() {
-        this.employeeIds = new ArrayList<>();
+    public HealthMetric() {
+        this.PatientIds = new ArrayList<>();
     }
 
-    public Department(String id, String name) {
+    public HealthMetric(String id, String name) {
         this.id = id;
         this.name = name;
-        this.employeeIds = new ArrayList<>();
+        this.PatientIds = new ArrayList<>();
     }
     
     
@@ -32,6 +32,6 @@ public class Department {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
     
-    public List<String> getEmployeeIds() { return employeeIds; }
-    public void setEmployeeIds(List<String> employeeIds) { this.employeeIds = employeeIds; }
+    public List<String> getPatientIds() { return PatientIds; }
+    public void setPatientIds(List<String> PatientIds) { this.PatientIds = PatientIds; }
 }

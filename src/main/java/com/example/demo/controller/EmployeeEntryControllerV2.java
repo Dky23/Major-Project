@@ -5,49 +5,38 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.EmployeeEntry;
-import com.example.demo.service.EmployeeEntryService;
+import com.example.demo.PatientEntry;
+import com.example.demo.service.PatientEntryService;
 
 
 @RestController
-@RequestMapping("/employees")
-public class EmployeeEntryControllerV2 {
+@RequestMapping("/patients")
+public class PatientEntryControllerV2 {
 
     @Autowired
-    private EmployeeEntryService service;
+    private PatientEntryService service;
 
     @PostMapping("/entry")
-    public EmployeeEntry create(@RequestBody EmployeeEntry emp) {
-        return service.saveEmployee(emp);
+    public PatientEntry create(@RequestBody PatientEntry pat) {
+        return service.savePatient(pat);
     }
 
     @GetMapping("/entries")
-    public List<EmployeeEntry> getAll() {
+    public List<PatientEntry> getAll() {
         return service.getAll();
     }
     
-    //Assign Department
-    @PutMapping("/{id}/department/{deptId}")
-    public EmployeeEntry assignDepartment(@PathVariable String id,
-                                          @PathVariable String deptId) {
-        return service.assignDepartment(id, deptId);
+    //Assign HealthMetric:SPO2,BP..
+    @PutMapping("/{id}/HealthMetric/{HealthMetricId}")
+    public PatientEntry assignWard(@PathVariable String id,
+                                          @PathVariable String HealthMetricId) {
+        return service.assignHealthMetric(id, HealthMetricId);
     }
     
-    //Assign Project
-    @PutMapping("/{id}/projects")
-    public EmployeeEntry assignProjects(@PathVariable String id,
-                                        @RequestBody List<String> projectIds) {
-        return service.assignProjects(id, projectIds);
+    //Assign MonitoringDevice:KinesisCare
+    @PutMapping("/{id}/MonitoringDevice")
+    public PatientEntry assignMonitoringDevice(@PathVariable String id,
+                                        @RequestBody List<String> MonitoringDeviceIds) {
+        return service.assignMonitoringDevice(id, MonitoringDeviceIds);
     }
 }
-
-
-//    //Multiple entries	
-//	@PostMapping("/multiple")
-//	public boolean createEntries(@RequestBody List<EmployeeEntry> entries) {
-//	    for (EmployeeEntry entry : entries) {
-//	        // Adding each employee entry to the map
-//	        employeeEntries.put(entry.getId(), entry);
-//	    }
-//	    return true;
-//	}

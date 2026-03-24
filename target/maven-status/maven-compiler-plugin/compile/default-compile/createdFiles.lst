@@ -1,0 +1,10 @@
+com/example/demo/repository/DepartmentRepository.class
+com/example/demo/EmployeeEntry.class
+com/example/demo/controller/EmployeeEntryControllerV2.class
+com/example/demo/Department.class
+com/example/demo/repository/EmployeeEntryRepository.class
+com/example/demo/RestApiApplication.class
+com/example/demo/controller/HealthCheck.class
+com/example/demo/repository/ProjectRepository.class
+com/example/demo/Project.class
+com/example/demo/service/EmployeeEntryService.class
